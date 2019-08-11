@@ -1,0 +1,77 @@
+
+body{
+    margin: 0px;
+    background-color: #333333;
+    overflow-x: hidden;
+}
+
+nav{
+    height: 100px;
+    width: 100vw;
+    padding: 5px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: stretch;
+
+    background-color: #222222;
+}
+
+nav > div{
+    margin: 5px;
+    background-color: rgba(255,255,255,.2);
+    color: white;
+    text-align: center;
+    line-height: 40px;
+}
+
+nav > div > p{
+    line-height: 50px;
+}
+
+.Logo,
+.Menu{
+    width: 300px;
+}
+.Title{
+    width: calc(100vw - 640px);
+}
+
+/* or */
+nav > div{
+    width: calc(100vw - 640px);
+}
+nav > div:nth-child(1),
+nav > div:last-child{
+    width: 300px;
+}
+
+header{
+    width: calc(100vw - 640px);
+    margin: 10px auto;
+    height: 200px;
+    background-color: #555;
+}
+
+.Container{
+    width: calc(100vw - 640px);
+    margin: 10px auto;
+    min-height: 200px;
+    background-color: rgba(255,255,255,.2);
+
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.Card{
+    width: calc((100vw - 640px) / 3 - 15px);
+    height: calc((100vw - 640px) / 3);
+    margin: 5px;
+    background-color: rgba(255,255,255,.2);
+    /* border: 1px solid blue; */
+    box-sizing: border-box;
+}
