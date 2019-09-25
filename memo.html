@@ -11,7 +11,7 @@
         <nav>
             <div class="logo">
                 <a href="#">
-                    <img src="https://img.icons8.com/material-outlined/48/000000/note.png">
+                    <img src="https://cdn.onlinewebfonts.com/svg/img_409859.png">
                 </a>
             </div>
             <div class="title">
@@ -38,6 +38,24 @@
             </div> -->
         </div>
     </div>
+    <div id="write-new-button"><p>+</p></div>
+    <div class="popup hide" id="write-memo-popup">
+        <div id="write-memo-popup-back"></div>
+        <div class="write-memo">
+            <div class="title-section">
+                <label for="title-write">Title</label>
+                <input type="text" id="title-write" placeholder="Title">
+            </div>
+            <div class="content-section">
+                <label for="content-write">Content</label>
+                <textarea rows="10" cols="50" id="content-write" placeholder="Content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, labore mollitia voluptatem repellat at modi enim iure magni, cumque itaque commodi qui rem ist</textarea>
+            </div>
+            <button onclick="writeNew()">Submit</button>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-database.js"></script>
+    <script src="firebase-memo.js"></script>
     <script src="memo.js"></script>
 </body>
 </html>

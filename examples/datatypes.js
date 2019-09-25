@@ -13,3 +13,4 @@ console.log("typeof myObject: "+ typeof myObject);
 console.log("typeof myArray: "+ typeof myArray);
 console.log("typeof myFunction: "+ typeof myFunction);
 console.log("typeof myClass: "+ typeof myClass);
+
