@@ -92,8 +92,30 @@ header .logo{
 }
 .memo > .memo-title{
     border-bottom: 1px solid rgba(0,0,0,0.2);
+    position: relative;
 }
-
+.memo > .memo-title > .delete-icon-wrapper{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    z-index: 2;
+}
+.memo > .memo-title > .delete-icon-wrapper img#icon-delete{
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: invert(1) brightness(0.45) opacity(0.3);
+    -webkit-filter: invert(1) brightness(0.45) opacity(0.3);
+}
+.memo > .memo-title > .delete-icon-wrapper:hover img#icon-delete{
+    filter:invert(1) brightness(0.45) sepia(1) hue-rotate(-45deg) saturate(3);
+    -webkit-filter:invert(1) brightness(0.45) sepia(1) hue-rotate(-45deg) saturate(3);
+}
 .popup{
     position: fixed;
     z-index: 100;

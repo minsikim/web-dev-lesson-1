@@ -1,3 +1,6 @@
+var memoCount = 0;
+var lastDataCopy = [];
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyARxsoeNyFDYfC7TSLIZZIWMNY5uHQWbz8",
@@ -14,15 +17,10 @@ firebase.initializeApp(firebaseConfig);
 
 // Get a reference to the database service
 // Read Memos from database
-var memodata = [];
 firebase.database().ref('memos').once('value', function(databaseCopy){
-    databaseCopy.forEach(function(childCopy){
-        var childKey = childCopy.key;
-        var childValue = childCopy.val();
-        memodata.push(childValue);
-    })
-    console.log(memodata);
-    dataCallback(memodata);
+    lastDataCopy = databaseCopy.val();
+    console.log(lastDataCopy);
+    dataCallback(lastDataCopy);
 });
 
 //Write Memos to database
@@ -30,14 +28,24 @@ function writeNew(){
     var writeTitle = document.getElementById("title-write").value;
     var writeContent = document.getElementById("content-write").value;
     
-    firebase.database().ref('memos/'+memoCount).set({
+    lastDataCopy.push({
         title: writeTitle,
         content: writeContent
     })
+
+    updateDatabase();
     writeMemoPopup.classList.add("hide");
-    location.reload();
 }
 
-function deleteMemo(memoKey){
+function deleteMemo(index){
+    lastDataCopy.splice(index, 1);
+    updateDatabase();
+}
 
+function regenMemo(){
+    dataCallback(lastDataCopy);
+}
+
+function updateDatabase(){
+    firebase.database().ref('memos').set(lastDataCopy, regenMemo);
 }
