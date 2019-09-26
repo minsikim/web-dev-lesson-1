@@ -31,7 +31,7 @@ function dataCallback(responseArray){
 
 function deleteClickHandler(e){
     if(e.target.dataset == undefined){
-        e.target.dataset = 0;
+        e.target.dataset.index = 0;
     }else{
         deleteMemo(e.target.dataset.index);
         console.log(e.target.dataset.index);

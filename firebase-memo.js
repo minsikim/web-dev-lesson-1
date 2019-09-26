@@ -35,6 +35,8 @@ function writeNew(){
 
     updateDatabase();
     writeMemoPopup.classList.add("hide");
+    document.getElementById("title-write").value = "";
+    document.getElementById("content-write").innerHTML = "";
 }
 
 function deleteMemo(index){
