@@ -1,3 +1,7 @@
+//URL을 저장함
+var url = new URL(location.href);
+console.log(url.searchParams.get('page'));
+
 //메모를 넣을 곳을 선택함
 var memoContainer = document.getElementById("memos");
 
@@ -89,3 +93,32 @@ writeMemoBack.onclick = function(){
 writeMemoButton.onclick = function(){
     writeMemoPopup.classList.remove("hide");
 }
+
+
+/* CLASS pagination */
+
+// 조건들
+// 1. 어떤 어래이를 받을꺼고 그걸 미리 쪼개놓고 원하는 디브에 html화 하는 콜백을 받을꺼임
+// 2. 미리 쪼개놓은 어래이로 페이지의 크기와 페이지의 갯수를 파악한 다음 패지네이션을 html 화 하는 메소드가 있을꺼임 
+// 3. 페이지를 url화 하는 방법이 있을꺼고, onclick 으로 받아서 js 가 리프레쉬 하는 방법 있을 것임
+// 4. 
+// 5. 
+
+// class Pagination{
+//     constructor(config){
+//         this.listDiv
+//     }
+//     build();
+
+// }
+
+// var paginationConfig = {
+//     listDiv : memoContainer, 
+//     list: lastDataCopy,
+//     paginationDiv : "",
+
+// }
+
+// var myPagination = new Pagination(paginationConfig);
+// myPagination.build();
+
