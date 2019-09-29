@@ -109,6 +109,10 @@ header .logo{
     transform: translate(-50%, -50%);
     filter: invert(1) brightness(0.45) opacity(0.3);
     -webkit-filter: invert(1) brightness(0.45) opacity(0.3);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
 }
 .memo > .memo-title > .delete-icon-wrapper:hover img#icon-delete{
     filter:invert(1) brightness(0.45) sepia(1) hue-rotate(-45deg) saturate(3);

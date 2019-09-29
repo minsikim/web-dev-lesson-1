@@ -21,7 +21,7 @@ var memoContainer = document.getElementById("memos");
 function dataCallback(responseArray){
     while (memoContainer.hasChildNodes()) {
         memoContainer.removeChild(memoContainer.childNodes[0]);
-      }
+    }
     memoCount = 0;
     for(var i = 0; i < responseArray.length; i++){
         buildMemoHTML(responseArray[i], i);
@@ -88,4 +88,52 @@ writeMemoBack.onclick = function(){
 }
 writeMemoButton.onclick = function(){
     writeMemoPopup.classList.remove("hide");
+}
+
+
+function callbackExample(something, callback){
+    callback(something);
+}
+
+callbackExample(123, console.log);
+
+
+class Pagination {
+    constructor(config){
+        this.list = config.list;
+        this.length = config.list.length;
+        this.pageLength = config.maxItem;
+        this.urlPages = config.urlPages ? true : false;
+        this.indexPages();
+        this.buildPage();
+    }
+
+    pageForward(){
+        //페이지 앞으로
+        if(this.urlPages == true){
+            // location.url;
+        }else{
+            
+        }
+    }
+    pageBackward(){
+        //페이지 뒤로
+    }
+    toPage(index){
+        
+    }
+
+    indexPages(){
+        //여기에 페이지당 글 제한과 같은것, 그리고 그걸 짤라 놓는것.
+    }
+    buildPage(){
+        //여기에 페이지 빌드하는 메소드 작성
+    }
+    buildPagination(){
+        //pagination 만들기
+        paginationDiv = document.createElement("DIV");
+        // for(){
+
+        // }
+    }
 }
