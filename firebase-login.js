@@ -1,3 +1,4 @@
+
 var provider = new firebase.auth.GoogleAuthProvider();
 firebase.auth().useDeviceLanguage();
 provider.setCustomParameters({
@@ -10,6 +11,7 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
     // The signed-in user info.
     var user = result.user;
     // ...
+    console.log(result);
   }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -19,4 +21,5 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
     // ...
+    console.log(error);
 });
