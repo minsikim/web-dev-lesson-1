@@ -1,6 +1,10 @@
 //URL을 저장함
 var url = new URL(location.href);
-console.log(url.searchParams.get('page'));
+var currentPage = 1;
+if(url.searchParams.get('page')){
+    currentPage = url.searchParams.get('page');
+}
+console.log(currentPage);
 
 //메모를 넣을 곳을 선택함
 var memoContainer = document.getElementById("memos");
@@ -21,16 +25,18 @@ var memoContainer = document.getElementById("memos");
 //     };
 //     xobj.send(null); 
 // }
+function resetDiv(div){
+    while (div.hasChildNodes()) {
+        div.removeChild(div.childNodes[0]);
+    }
+}
 
-function dataCallback(responseArray){
-    while (memoContainer.hasChildNodes()) {
-        memoContainer.removeChild(memoContainer.childNodes[0]);
-      }
-    memoCount = 0;
+function buildMemoCard(responseArray){
+    resetDiv(memoContainer);
     for(var i = 0; i < responseArray.length; i++){
         buildMemoHTML(responseArray[i], i);
-        memoCount++;
     }
+    // paginationBuild();
 }
 
 function deleteClickHandler(e){
@@ -101,24 +107,99 @@ writeMemoButton.onclick = function(){
 // 1. 어떤 어래이를 받을꺼고 그걸 미리 쪼개놓고 원하는 디브에 html화 하는 콜백을 받을꺼임
 // 2. 미리 쪼개놓은 어래이로 페이지의 크기와 페이지의 갯수를 파악한 다음 패지네이션을 html 화 하는 메소드가 있을꺼임 
 // 3. 페이지를 url화 하는 방법이 있을꺼고, onclick 으로 받아서 js 가 리프레쉬 하는 방법 있을 것임
-// 4. 
-// 5. 
 
-// class Pagination{
-//     constructor(config){
-//         this.listDiv
-//     }
-//     build();
 
-// }
 
-// var paginationConfig = {
-//     listDiv : memoContainer, 
-//     list: lastDataCopy,
-//     paginationDiv : "",
 
-// }
+// pagination 동적 생성
+// 0. 가지고 있는 리스트 데이터를 원하는 사이즈로 쪼개놔야 한다.
+// listSize 한페이지에 표시할 최대 글 수
+var listPage = [];
+var listSize = 6;
 
-// var myPagination = new Pagination(paginationConfig);
+function paginationBuild(){
+}
+
+var paginationConfig = {
+    listDiv : memoContainer, 
+    listData: lastDataCopy,
+    paginationDiv : document.getElementById("pagination"),
+    listSize: 6,
+    currentPage: url.searchParams.get('page') ? url.searchParams.get('page') : 1
+}
+
+class Pagination{
+    constructor(config){
+        this.listDiv = config.listDiv;
+        this.listData = config.listData;
+        this.listSize = config.listSize;
+        this.paginationDiv = config.paginationDiv;
+
+        this.currentPage = currentPage;
+    }
+    
+    updateData(){
+        this.listData = lastDataCopy;
+    }
+    changeListSize(size){
+        this.listSize = size;
+        this.updateData();
+        this.build();
+    }
+    build(){
+        resetDiv(this.paginationDiv);
+        var subListSize = Math.ceil(this.listData.length / listSize);
+        for(var i = 0; subListSize > i; i++){
+            var tempArr = [];
+            for(var j = 0; listSize > j; j++){
+                if(this.listData[(i*listSize)+j]){
+                    tempArr.push(this.listData[(i*listSize)+j])
+                }else{
+                    break;
+                }
+            }
+            listPage.push(tempArr);
+        }
+
+        // 1. pagination을 넣을 div가 필요
+        
+        // 2. 그 안에 ul을 생성
+        var pUl = document.createElement("UL");
+        this.paginationDiv.appendChild(pUl);
+    
+        // 3. 그 안에 li > a 필요한 페이지 갯수 만큼 생성
+        if(currentPage > 1){
+            var prevLi = document.createElement("LI");
+            var prevA = document.createElement("A");
+            pUl.appendChild(prevLi);
+            prevLi.appendChild(prevA);
+            prevA.href = "?page="+(currentPage - 1);
+            prevA.innerHTML = "<";
+        }
+        //subListSize 는 내 전체 데이터중 현재 표시해야되는 페이지의 리스트로 쪼개놓은 것
+        for(var i = 0; subListSize > i; i++){
+            var tempLi = document.createElement("LI");
+            var tempA = document.createElement("A");
+            tempLi.appendChild(tempA);
+            tempA.href = "?page="+(i+1);
+            tempA.innerHTML = (i+1);
+            pUl.appendChild(tempLi);
+        }
+        // 4. 앞 뒤로 prev, next li 생성
+        //listPage 는 뭔가 내 데이터를 쪼개서 넣어놓은 어레이
+        if(listPage.length > 1){
+            var nextLi = document.createElement("LI");
+            var nextA = document.createElement("A");
+            pUl.appendChild(nextLi);
+            nextLi.appendChild(nextA);
+            nextA.href = "?page="+(currentPage + 1);
+            nextA.innerHTML = ">";
+        }
+    }
+
+}
+
+
+
+var myPagination = new Pagination(paginationConfig);
 // myPagination.build();
-

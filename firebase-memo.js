@@ -1,4 +1,3 @@
-var memoCount = 0;
 var lastDataCopy = [];
 
 // Your web app's Firebase configuration
@@ -20,7 +19,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.database().ref('memos').once('value', function(databaseCopy){
     lastDataCopy = databaseCopy.val();
     console.log(lastDataCopy);
-    dataCallback(lastDataCopy);
+    regenMemo();
 });
 
 //Write Memos to database
@@ -45,7 +44,11 @@ function deleteMemo(index){
 }
 
 function regenMemo(){
-    dataCallback(lastDataCopy);
+    // *TODO* 나중에 항상 여기서 lastDataCopy를 Pagination Class 에서 update하는 함수가 필요함
+    myPagination.updateData();
+    myPagination.build();
+    // paginationBuild();
+    buildMemoCard(listPage[currentPage - 1]);
 }
 
 function updateDatabase(){

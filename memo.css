@@ -203,3 +203,38 @@ header .logo{
     -o-transform: translate(-50%, -50%);
     font-size: 40px;
 }
+
+/* #region PAGINATION COMPONENT */
+
+.pagination{
+    display: inline-block;
+}
+.pagination > ul{
+    list-style: none;
+    display: flex;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    overflow: hidden;
+    padding-left: 0px;
+}
+.pagination > ul > li{
+    border-right: 1px solid rgba(0,0,0,0.2);
+    background-color: white;
+    padding: 8px 0px;
+}
+.pagination > ul > li:last-child{
+    border-right: none;
+}
+.pagination > ul > li > a{
+    padding: 10px;
+    box-sizing: border-box;
+}
+.pagination > ul > li:hover{
+    background-color: rgba(237, 185, 55, 0.6);
+}
+
+/* #endregion */
