@@ -19,10 +19,10 @@
                     <h4>Simple Memo</h4>
                 </a>
             </div>
-            <div class="menu">
-                <a href="#">
+            <div class="menu" id="signin-button">
+                <!-- <a href="#"> -->
                     <img src="https://img.icons8.com/material/24/000000/menu.png">
-                </a>
+                <!-- </a> -->
             </div>
         </nav>
     </header>
@@ -38,14 +38,15 @@
                 </div>
             </div> -->
         </div>
-        <div class="pagination" id="pagination">
-            
+        <div class="pagination-wrapper">
+            <div class="pagination" id="pagination"></div>
         </div>
+
     </div>
     <div id="write-new-button"><p>+</p></div>
     <div class="popup hide" id="write-memo-popup">
-        <div id="write-memo-popup-back"></div>
-        <div class="write-memo">
+        <div class="popup-back" id="write-memo-popup-back"></div>
+        <div class="modal">
             <div class="title-section">
                 <label for="title-write">Title</label>
                 <input type="text" id="title-write" placeholder="Title">
@@ -55,6 +56,22 @@
                 <textarea rows="10" cols="50" id="content-write" placeholder="Content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, labore mollitia voluptatem repellat at modi enim iure magni, cumque itaque commodi qui rem ist</textarea>
             </div>
             <button onclick="writeNew()">Submit</button>
+        </div>
+    </div>
+    <div class="popup hide" id="signin-popup">
+        <div class="popup-back" id="signin-popup-back"></div>
+        <div class="modal">
+            <h1>Sign In</h1>
+            <div class="id-section">
+                <label for="id-write">Account</label>
+                <input type="text" id="id-write" placeholder="username@example.com">
+            </div>
+            <div class="password-section">
+                <label for="password-write">Password</label>
+                <input type="password" id="password-write" placeholder="password">
+            </div>
+            <button onclick="signin()">Submit</button>
+            <button onclick="googleSignUp()">Google Sign up</button>
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>

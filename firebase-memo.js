@@ -45,10 +45,9 @@ function deleteMemo(index){
 
 function regenMemo(){
     // *TODO* 나중에 항상 여기서 lastDataCopy를 Pagination Class 에서 update하는 함수가 필요함
-    myPagination.updateData();
+    myPagination = new Pagination(paginationConfig);
+    buildMemoCard(myPagination.listPage[myPagination.currentPage - 1]);
     myPagination.build();
-    // paginationBuild();
-    buildMemoCard(listPage[currentPage - 1]);
 }
 
 function updateDatabase(){
