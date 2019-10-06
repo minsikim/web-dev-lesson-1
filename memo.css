@@ -122,8 +122,8 @@ header .logo{
     top: 0px;
     left: 0px;
 }
-.popup.hide{
-    display: none;
+.hide{
+    display: none !important;
 }
 .popup .popup-back{
     position: absolute;
@@ -240,3 +240,12 @@ header .logo{
 }
 
 /* #endregion */
+
+
+#signin-popup button{
+    min-height: 50px;
+    background-color: rgb(237, 185, 55);
+    color: white;
+    margin-bottom: 10px;
+    border: 1px solid rgb(255, 245, 187);
+}

@@ -61,22 +61,25 @@
     <div class="popup hide" id="signin-popup">
         <div class="popup-back" id="signin-popup-back"></div>
         <div class="modal">
-            <h1>Sign In</h1>
-            <div class="id-section">
-                <label for="id-write">Account</label>
-                <input type="text" id="id-write" placeholder="username@example.com">
+            <h1>Sign In<br><br></h1>
+            <div id="user-info"></div>
+            <div class="id-section" id="id-section">
+                <label for="id-field">Email</label>
+                <input type="text" id="id-field" placeholder="username@example.com">
             </div>
-            <div class="password-section">
-                <label for="password-write">Password</label>
-                <input type="password" id="password-write" placeholder="password">
+            <div class="password-section" id="password-section">
+                <label for="password-field">Password</label>
+                <input type="password" id="password-field" placeholder="password">
             </div>
-            <button onclick="signin()">Submit</button>
-            <button onclick="googleSignUp()">Google Sign up</button>
+            <button onclick="signIn()">Submit</button>
+            <button onclick="googleSignIn()">Google Sign In</button>
+            <button onclick="googleSignUp()">Sign Up with Google</button>
+            <button onclick="signOut()">Sign Out</button>
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-oauth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-auth.js"></script>
     <script src="firebase-memo.js"></script>
     <script src="firebase-signin.js"></script>
     <script src="memo.js"></script>
