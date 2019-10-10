@@ -19,7 +19,7 @@
                     <h4>Simple Memo</h4>
                 </a>
             </div>
-            <div class="menu" id="signin-button">
+            <div class="menu" id="menu-button">
                 <!-- <a href="#"> -->
                     <img src="https://img.icons8.com/material/24/000000/menu.png">
                 <!-- </a> -->
@@ -71,10 +71,30 @@
                 <label for="password-field">Password</label>
                 <input type="password" id="password-field" placeholder="password">
             </div>
-            <button onclick="signIn()">Submit</button>
-            <button onclick="googleSignIn()">Google Sign In</button>
-            <button onclick="googleSignUp()">Sign Up with Google</button>
-            <button onclick="signOut()">Sign Out</button>
+            <button id="signin-button" onclick="signIn()">Submit</button>
+            <button id="google-signin-button"onclick="googleSignIn()">Google Sign In</button>
+            <button id="google-signup-button"onclick="signUp()">Sign Up</button>
+            <button id="signout-button"class="hide" onclick="signOut()">Sign Out</button>
+        </div>
+    </div>
+    <div class="popup hide" id="signup-popup">
+        <div class="popup-back" id="signup-popup-back"></div>
+        <div class="modal">
+            <h1>Sign Up<br><br></h1>
+            <div class="id-section" id="new-id-section">
+                <label for="new-id-field">Email</label>
+                <input type="text" id="new-id-field" placeholder="username@example.com">
+            </div>
+            <div class="password-section" id="new-password-section">
+                <label for="new-password-field">Password</label>
+                <input type="password" id="new-password-field" placeholder="password">
+            </div>
+            <div class="password-section" id="new-password-section-check">
+                <input type="password" id="new-password-check-field" placeholder="retype password">
+            </div>
+            <p id='error-message'></p>
+            <button id="signup-submit-button" onclick="signUpSubmit()">Submit</button>
+            <button id="signup-submit-button" onclick="toggleSignIn()">Sign In</button>
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>

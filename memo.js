@@ -70,7 +70,7 @@ var writeMemoPopup = document.getElementById("write-memo-popup");
 var writeMemoBack = document.getElementById("write-memo-popup-back");
 var signInPopup = document.getElementById("signin-popup");
 var signInBack = document.getElementById("signin-popup-back");
-var signInButton = document.getElementById("signin-button");
+var signInButton = document.getElementById("menu-button");
 
 writeMemoBack.onclick = function(){
     writeMemoPopup.classList.add("hide");
