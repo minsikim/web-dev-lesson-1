@@ -12,6 +12,7 @@ function resetDiv(div){
 
 function buildMemoCard(responseArray){
     resetDiv(memoContainer);
+    console.log(responseArray);
     for(var i = 0; i < responseArray.length; i++){
         buildMemoHTML(responseArray[i], i);
     }
@@ -99,9 +100,13 @@ signInButton.onclick = function(){
 var paginationConfig = {
     listDiv : memoContainer, 
     paginationDiv : document.getElementById("pagination"),
-    listSize: 9,
+    listSize: 20,
     currentPage: url.searchParams.get('page') ? parseInt(url.searchParams.get('page')) : 1
 }
+
+// class는 정의문들의 집합이다.
+// constructor 또한 생성시 실행되는 펑션을 정의 할 뿐 실행문이 아님.
+// 
 
 class Pagination{
     constructor(config){
@@ -113,8 +118,14 @@ class Pagination{
         this.listData = this.updateData();
         this.subListSize = this.setSublistSize();
         this.listPage = this.setListPage();
+        this.checkPageNumber();
+        
     }
-    
+    checkPageNumber(){
+        if(this.listPage.length < this.currentPage){
+            location.href = "/memo.html";
+        }
+    }
     setSublistSize(){
         return Math.ceil( this.listData.length / this.listSize );
     }
@@ -131,7 +142,7 @@ class Pagination{
             }
             tempListPage.push(tempArr);
         }
-        console.log(tempListPage);
+        // console.log(tempListPage);
         return tempListPage;
     }
     updateData(){
@@ -190,7 +201,15 @@ class Pagination{
 
 
 
-var myPagination = new Pagination(paginationConfig);
+// var myPagination = new Pagination(paginationConfig);
 // myPagination.build();
 
 
+//어레이, 스트링, 오브젝트, Math, Date 정도는 도큐멘테이션을 따라서 내장함수들을 한번 써보는거
+// 어레이가 있음
+
+
+// 클릭시 어레이에서 뭔가를 불러와서 
+
+
+// 뭔가를 함.
