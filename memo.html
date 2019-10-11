@@ -73,8 +73,8 @@
             </div>
             <button id="signin-button" onclick="signIn()">Submit</button>
             <button id="google-signin-button"onclick="googleSignIn()">Google Sign In</button>
-            <button id="google-signup-button"onclick="signUp()">Sign Up</button>
-            <button id="signout-button"class="hide" onclick="signOut()">Sign Out</button>
+            <button id="google-signup-button"onclick="toggleSignUp()">Sign Up</button>
+            <button id="signout-button" class="hide" onclick="signOut()">Sign Out</button>
         </div>
     </div>
     <div class="popup hide" id="signup-popup">
@@ -93,7 +93,7 @@
                 <input type="password" id="new-password-check-field" placeholder="retype password">
             </div>
             <p id='error-message'></p>
-            <button id="signup-submit-button" onclick="signUpSubmit()">Submit</button>
+            <button id="signup-submit-button" onclick="signUp()">Submit</button>
             <button id="signup-submit-button" onclick="toggleSignIn()">Sign In</button>
         </div>
     </div>

@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig);
 
 // Get a reference to the database service
 // Read Memos from database
-firebase.database().ref('memos').once('value', function(databaseCopy){
+firebase.database().ref('memos/'+currentUser.uid).once('value', function(databaseCopy){
     lastDataCopy = databaseCopy.val();
     console.log(lastDataCopy);
     regenMemo();
@@ -51,5 +51,5 @@ function regenMemo(){
 }
 
 function updateDatabase(){
-    firebase.database().ref('memos').set(lastDataCopy, regenMemo);
+    firebase.database().ref('memos'+currentUser.uid).set(lastDataCopy, regenMemo);
 }
