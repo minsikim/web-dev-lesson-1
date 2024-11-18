@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/minsikim/web-dev-lesson-1#readme",
   "dependencies": {
-    "firebase": "^6.6.2"
+    "firebase": "^10.9.0"
   }
 }
